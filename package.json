@@ -1,13 +1,10 @@
 {
   "name": "@oeph/danger-plugin-eslint",
   "description": "Eslint your code with Danger",
-  "author": {
-    "name": "Philipp Oehme",
-    "email": "me@philippoeh.me"
-  },
+  "author": "Philipp Oehme <me@philippoeh.me>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oeph/danger-plugin-eslint.git"
+    "url": "git+https://github.com/oeph/danger-plugin-eslint.git"
   },
   "bugs": {
     "url": "https://github.com/oeph/danger-plugin-eslint/issues"
@@ -18,7 +15,7 @@
     "danger-plugin",
     "eslint"
   ],
-  "version": "0.1.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
@@ -52,7 +49,7 @@
     "semantic-release": "^8.2.0",
     "ts-jest": "^20.0.0",
     "tslint": "^5.4.3",
-    "typescript": "^2.3.2",
+    "typescript": "^3.8.3",
     "validate-commit-msg": "^2.12.1"
   },
   "optionalDependencies": {
@@ -87,6 +84,7 @@
     ]
   },
   "dependencies": {
-    "eslint": "^4.12.1"
+    "eslint": "^4.12.1",
+    "esdoc": "^0.5.2"
   }
 }
