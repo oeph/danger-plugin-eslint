@@ -53,6 +53,19 @@ describe("eslint()", () => {
     expect(global.fail).not.toHaveBeenCalled()
   })
 
+  it("does not fail for bitbucket server when a valid file is in PR", async () => {
+    global.danger = {
+      bitbucket_server: {
+        api: { getFileContents: mockFileContents(`1 + 1;`) },
+      },
+      git: { created_files: ["foo.js"], modified_files: [] },
+    }
+
+    await eslint(defaultConfig)
+
+    expect(global.fail).not.toHaveBeenCalled()
+  })
+
   it("calls fail for each eslint violation", async () => {
     global.danger = {
       github: {
