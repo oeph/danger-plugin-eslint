@@ -34,7 +34,7 @@ describe("eslint()", () => {
       git: { created_files: [], modified_files: [] },
     }
 
-    await eslint(defaultConfig)
+    await eslint(null, defaultConfig)
 
     expect(global.fail).not.toHaveBeenCalled()
   })
@@ -48,7 +48,7 @@ describe("eslint()", () => {
       git: { created_files: ["foo.js"], modified_files: [] },
     }
 
-    await eslint(defaultConfig)
+    await eslint(null, defaultConfig)
 
     expect(global.fail).not.toHaveBeenCalled()
   })
@@ -61,7 +61,7 @@ describe("eslint()", () => {
       git: { created_files: ["foo.js"], modified_files: [] },
     }
 
-    await eslint(defaultConfig)
+    await eslint(null, defaultConfig)
 
     expect(global.fail).not.toHaveBeenCalled()
   })
@@ -82,7 +82,7 @@ describe("eslint()", () => {
       git: { created_files: ["foo.js"], modified_files: [] },
     }
 
-    await eslint(defaultConfig)
+    await eslint(null, defaultConfig)
 
     expect(global.fail).toHaveBeenCalledTimes(2)
     expect(global.fail).toHaveBeenLastCalledWith("foo.js line 2 – 'console' is not defined. (no-undef)")
@@ -102,7 +102,7 @@ describe("eslint()", () => {
       git: { created_files: ["foo.js"], modified_files: [] },
     }
 
-    await eslint({
+    await eslint(null, {
       rules: {
         "no-undef": 0,
       },

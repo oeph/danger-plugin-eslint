@@ -11,8 +11,10 @@ import { CLIEngine } from "eslint"
 /**
  * Eslint your code with Danger
  */
-export default async function eslint(config: any) {
-  const filesToLint = danger.git.created_files.concat(danger.git.modified_files)
+export default async function eslint(
+  filesToLint: any = danger.git.created_files.concat(danger.git.modified_files),
+  config: any
+) {
   const cli = new CLIEngine({ baseConfig: config })
   return Promise.all(filesToLint.map(f => lintFile(cli, config, f)))
 }
