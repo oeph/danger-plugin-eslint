@@ -23,6 +23,8 @@ async function lintFile(linter, config, path) {
   let contents
   if (danger.bitbucket_server != null) {
     contents = await danger.bitbucket_server.api.getFileContents(path)
+  } else if (danger.gitlab != null) {
+    contents = await danger.gitlab.utils.fileContents(path)
   } else {
     contents = await danger.github.utils.fileContents(path)
   }
