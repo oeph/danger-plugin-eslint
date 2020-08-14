@@ -22,7 +22,7 @@ export default async function eslint(
 async function lintFile(linter, config, path) {
   let contents
   if (danger.bitbucket_server != null) {
-    contents = await danger.bitbucket_server.api.getFileContents(path)
+    contents = await danger.bitbucket_server.api.getFileContents(path, danger.bitbucket_server.metadata.repoSlug, danger.bitbucket_server.pr.fromRef.id)
   } else if (danger.gitlab != null) {
     contents = await danger.gitlab.utils.fileContents(path)
   } else {
